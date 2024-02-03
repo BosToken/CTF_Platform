@@ -34,9 +34,10 @@
                                             {!! $solveChallenge->challenge->message !!}
                                         </p>
                                     </div>
-                                    <form action="" method="post">
+                                    <form action="submitFlag/{{ $solveChallenge->challenge->id }}" method="post">
+                                        @csrf
                                         <div class="input-group mb-3">
-                                            <input type="text" class="form-control" placeholder="Flag"
+                                            <input type="text" class="form-control" placeholder="Flag" name="flag"
                                                 aria-label="Recipient's username" aria-describedby="button-addon2">
                                             <button class="btn btn-outline-success" type="submit"
                                                 id="button-addon2">Submit</button>

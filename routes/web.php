@@ -29,7 +29,7 @@ Route::get('login', function(){
 Route::get('profile', [UserController::class, 'profile'])->name('user-profile');
 
 Route::post('login', [UserController::class, 'login']);
-Route::get('logout', [UserController::class, 'logout']);
+Route::get('logout', [UserController::class, 'logout'])->name('logout');
 
 
 Route::get('debug', [Controller::class, 'debug']);

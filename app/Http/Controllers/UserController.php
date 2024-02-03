@@ -41,15 +41,21 @@ class UserController extends Controller
     public function submitFlag(Request $request, $id, ChallengeAction $challengeAction, SolverAction $solverAction)
     {
         if ($challengeAction->isFlagTrue($id, $request['flag'])) {
-            $solverAction->isSolve($id);
-            $challengeAction->updateScore($id);
-        } 
+            if ($solverAction->isSolve($id)) {
+                $challengeAction->updateScore($id);
+            }
+        }
         return redirect('challenge');
     }
 
+    public function scoreboard(SolverAction $solverAction){
+        $users = $solverAction->score();
+        return view('page.user.scoreboard', compact('users'));
+    }
 
     public function logout(AuthAction $action)
     {
         $action->logout();
+        return redirect('login');
     }
 }

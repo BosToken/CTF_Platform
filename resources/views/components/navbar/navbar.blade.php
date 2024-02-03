@@ -11,7 +11,7 @@
                     <a class="nav-link active" aria-current="page" href="#">Users</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Scoreboard</a>
+                    <a class="nav-link active" aria-current="page" href="{{route('scoreboard')}}">Scoreboard</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{{route('challenge')}}">Challenge</a>
@@ -22,7 +22,7 @@
                     <a class="nav-link active" href="{{route('user-profile')}}">Profile</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Setting</a>
+                    <a class="nav-link active" href="{{route('logout')}}">Logout</a>
                 </li>
             </ul>
         </div>

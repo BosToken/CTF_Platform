@@ -3,7 +3,8 @@
 namespace App\Actions;
 
 use App\Models\Solver;
-use Illuminate\Support\Facades\Auth;    
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class SolverAction
 {
@@ -17,13 +18,44 @@ class SolverAction
         return Solver::with('challenge', 'user')->get();
     }
 
-    public function isSolve($challenge_id){
+    public function isSolve($challenge_id)
+    {
         $user_id = Auth::user()->id;
-        $solve = new Solver();
+        $isSolve = Solver::where("solvers.challenge_id", $challenge_id)->where('solvers.user_id', $user_id)->get();
 
-        $solve->user_id = $user_id;
-        $solve->challenge_id = $challenge_id;
+        if (count($isSolve) === 0) {
+            $user_id = Auth::user()->id;
+            $solve = new Solver();
+            $solve->user_id = $user_id;
+            $solve->challenge_id = $challenge_id;
+            $solve->save();
+            return 1;
+        }
+        return 0;
+    }
 
-        return $solve->save();
+    public function score()
+    {
+        return User::with('solvers.challenge')
+            ->get()
+            ->map(function ($user) {
+                // Check if solvers is empty
+                if ($user->solvers->isEmpty()) {
+                    return null; // Skip this user if solvers is empty
+                }
+
+                $score = $user->solvers->sum(function ($solve) {
+                    return $solve->challenge->value;
+                });
+
+                return [
+                    "username" => $user->username,
+                    "score" => $score
+                ];
+            })
+            ->filter()
+            ->sortByDesc('score')
+            ->values()
+            ->all();
     }
 }
