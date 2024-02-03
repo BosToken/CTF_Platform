@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('challenge_categories', function (Blueprint $table) {
+        Schema::create('solvers', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('name');
-            $table->string('description');
+            $table->foreignUuid('user_id')->references('id')->on('users');
+            $table->foreignUuid('challenge_id')->references('id')->on('challenges');
             $table->timestamps();
         });
     }
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('challenge_categories');
+        Schema::dropIfExists('solvers');
     }
 };

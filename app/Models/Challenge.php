@@ -2,10 +2,12 @@
 
 namespace App\Models;
 
+use App\Models\Solver;
 use App\Models\ChallengeCategory;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Model;
 
 class Challenge extends Model
@@ -26,8 +28,13 @@ class Challenge extends Model
         'challenge_type'
     ];
 
-    public function challengetable(): BelongsTo
+    public function category(): HasOne
     {
-        return $this->belongsTo(ChallengeCategory::class);
+        return $this->hasOne(ChallengeCategory::class, "id", "challenge_categories_id");
+    }
+
+    public function solvers(): HasMany
+    {
+        return $this->hasMany(Solver::class, 'challenge_id', 'id');
     }
 }

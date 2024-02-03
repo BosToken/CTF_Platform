@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 
@@ -14,9 +15,12 @@ class UserResource extends JsonResource
      */
     public function toArray($request): array
     {
+        // $user = User::with('solvers.challenge')->find($this->id);
         return [
-            'id' => $this->id,
-            'username' => $this->username
+            'id' =>$this->id,
+            'test' => "Test",
+            'username' => $this->username,
+            // 'challenge_solves' => $user->solvers
         ];
     }
 }

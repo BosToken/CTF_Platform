@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('challenges', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('name');
-            $table->integer('challenge_categories_id');
+            $table->foreignUuid('challenge_categories_id')->references('id')->on('challenge_categories');
             $table->string('message');
             $table->string('flag');
             $table->string('file')->nullable();

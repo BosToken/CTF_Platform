@@ -2,6 +2,8 @@
 
 namespace App\Actions;
 
+use App\Models\User;
+use App\Http\Resources\UserResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -22,15 +24,15 @@ class AuthAction
             return Auth::user();
         }
         return false;
-
     }
 
     public function getuser()
     {
-        return Auth::user();
+        return User::with('solvers.challenge.category')->find(Auth::id());
     }
 
-    public function logout(){
+    public function logout()
+    {
         Auth::logout();
         return view('login');
     }
