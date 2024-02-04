@@ -11,7 +11,9 @@ Route::prefix("admin")->group(function () {
     Route::get('teams', [AdminController::class, 'teams'])->name('admin-teams');
     Route::get('dashboard', [AdminController::class, 'dashboard'])->name('admin-dashboard');
     Route::get('team-manage', [AdminController::class, 'teamManage'])->name('admin-team-manages');
-
+    Route::get('report/{id}', [AdminController::class, 'report'])->name('admin-report');
+    Route::get('report-download/{id}', [AdminController::class, 'reportDownload'])->name('admin-report-download');
+    
     Route::get('challenge/new', [AdminController::class, 'createChallenge'])->name('admin-create-challenge');
     Route::get('category/new', [AdminController::class, 'createCategory'])->name('admin-create-category');
     Route::get('information/new', [AdminController::class, 'createInformation'])->name('admin-create-information');

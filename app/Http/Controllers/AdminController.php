@@ -8,6 +8,7 @@ use App\Actions\InformationAction;
 use App\Actions\TeamAction;
 use App\Actions\TeamManageAction;
 use App\Actions\UserAction;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -42,10 +43,24 @@ class AdminController extends Controller
         return view('page.admin.team-manage', compact('manages'));
     }
 
+    public function report($id, InformationAction $informationAction){
+        $information = $informationAction->getAllInformationById($id);
+        return view('page.admin.report', compact('information'));
+    }
+
+    public function reportDownload($id, InformationAction $informationAction){
+        $information = $informationAction->getAllInformationById($id);
+        $title = $information->information;
+        $data = [
+            'information' => $information
+        ];
+        $pdf = Pdf::loadView('page.admin.report', $data);
+        return $pdf->download('Training_Report-'.$title.'.pdf');
+    }
+
     public function dashboard(InformationAction $informationAction)
     {
         $informations = $informationAction->getAllInformation();
-        // return $informations;
         return view('page.admin.dashboard', compact('informations'));
     }
 

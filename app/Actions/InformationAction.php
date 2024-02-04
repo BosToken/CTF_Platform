@@ -32,6 +32,12 @@ class InformationAction
         return $information;
     }
 
+    public function getAllInformationById($id)
+    {
+        $information = Information::with('challenges.solvers.user', 'challenges.category', 'manages.team', 'manages.user', 'manages.user.solvers.challenge')->find($id);
+        return $information;
+    }
+
     public function updateInformation($request, $id)
     {
         $information = Information::find($id);

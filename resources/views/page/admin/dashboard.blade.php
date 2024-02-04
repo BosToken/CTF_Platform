@@ -39,7 +39,7 @@
                     </tbody>
                 </table>
             </div>
-            <center><button class="btn btn-primary my-3">Download Detail</button></center>
+            <center><a href="/admin/report/{{$information->id}}" class="btn btn-success my-3">Detail</a> <a href="/admin/report-download/{{$information->id}}" class="btn btn-primary my-3">Download PDF</a></center>
         </div>
     @endforeach
 </x-layout.admin>
