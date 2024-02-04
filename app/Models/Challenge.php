@@ -15,7 +15,6 @@ class Challenge extends Model
     use HasFactory, HasUuids;
 
     protected $table = 'challenges';
-
     protected $fillable = [
         'id',
         'name',
@@ -31,6 +30,11 @@ class Challenge extends Model
     public function category(): HasOne
     {
         return $this->hasOne(ChallengeCategory::class, "id", "challenge_categories_id");
+    }
+
+    public function informations()
+    {
+        return $this->hasOne(Information::class, 'id', 'information_id');
     }
 
     public function solvers(): HasMany

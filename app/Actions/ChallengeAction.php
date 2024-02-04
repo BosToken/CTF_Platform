@@ -2,7 +2,7 @@
 
 namespace App\Actions;
 
-use App\Models\ChallengeCategory;
+use Illuminate\Support\Str;
 use App\Models\Challenge;
 use App\Models\Solver;
 use Illuminate\Support\Facades\Auth;
@@ -39,9 +39,9 @@ class ChallengeAction
         return $unsolve;
     }
 
-    public function getChallenges()
-    {
-        return Challenge::all();
+    public function getChallengeById($id){
+        $challenge = Challenge::find($id);
+        return $challenge;
     }
 
     public function isFlagTrue($id, $flag)
@@ -57,13 +57,45 @@ class ChallengeAction
     public function updateScore($challenge_id)
     {
         $challenge = Challenge::with('solvers')->find($challenge_id);
-        $solveCount = count($challenge->solvers);
-        $score = $challenge->value - (4 * $solveCount);
-        if ($score <= 100) {
-            $score = 100;
+        if ($challenge->challenge_type === 1) {
+
+            $solveCount = count($challenge->solvers);
+            $score = $challenge->value - (4 * $solveCount);
+            if ($score <= 100) {
+                $score = 100;
+            }
+            $challenge->value = $score;
+
+            $challenge->save();
         }
-        $challenge->value = $score;
-        
+    }
+
+    public function storeChallenge($request)
+    {
+        $challenge = new Challenge();
+        $challenge->id = Str::uuid()->toString();
+        $challenge->name = $request['name'];
+        $challenge->challenge_categories_id = $request['challenge_categories_id'];
+        $challenge->message = $request['message'];
+        $challenge->flag = $request['flag'];
+        $challenge->value = $request['value'];
+        $challenge->challenge_type = $request['challenge_type'];
         $challenge->save();
+    }
+
+    public function updateChallenge($request, $id){
+        $challenge = Challenge::find($id);
+        $challenge->name = $request['name'];
+        $challenge->challenge_categories_id = $request['challenge_categories_id'];
+        $challenge->message = $request['message'];
+        $challenge->flag = $request['flag'];
+        $challenge->value = $request['value'];
+        $challenge->challenge_type = $request['challenge_type'];
+        $challenge->save();
+    }
+
+    public function deleteChallenge($id){
+        Solver::where("solvers.challenge_id", $id)->delete();
+        Challenge::find($id)->delete();
     }
 }

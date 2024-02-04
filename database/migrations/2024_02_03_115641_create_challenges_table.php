@@ -15,13 +15,13 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->string('name');
             $table->foreignUuid('challenge_categories_id')->references('id')->on('challenge_categories');
+            $table->foreignUuid('information_id')->references('id')->on('informations');
             $table->string('message');
             $table->string('flag');
             $table->string('file')->nullable();
 
             //Transaction
             $table->integer('value');
-            $table->integer('solver');
             $table->boolean('challenge_type')->default(true);
             $table->timestamps();
         });

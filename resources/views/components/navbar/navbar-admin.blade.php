@@ -8,13 +8,16 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{{route('users')}}">Dasboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{{route('admin-challenges')}}">Challenges</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="{{route('admin-categories')}}">Categories</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{{route('users')}}">Users</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{route('scoreboard')}}">Scoreboard</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{route('challenges')}}">Challenge</a>
                 </li>
             </ul>
             <ul class="navbar-nav">

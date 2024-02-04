@@ -5,7 +5,7 @@
 
     @foreach ($categories as $category)
         <h2>{{ $category->name }}</h2>
-        <div class="d-flex justify-content-start">
+        <div class="d-flex flex-wrap justify-content-start mb-5">
             @foreach ($solveChallenges as $solveChallenge)
                 @if ($solveChallenge->challenge->category->name == $category->name)
                     <div class="card bg-success text-white my-3 me-3" style="width: 20rem;" data-bs-toggle="modal"

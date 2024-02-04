@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 require __DIR__ . '/web/user/user.route.php';
+require __DIR__ . '/web/admin/admin.route.php';
 
 Route::get('/', function () {
     return view('welcome');
@@ -27,6 +28,8 @@ Route::get('login', function(){
 
 
 Route::get('profile', [UserController::class, 'profile'])->name('user-profile');
+Route::get('users', [Controller::class, 'users'])->name('users');
+Route::get('user/{username}', [Controller::class, 'getUser'])->name('user-detail');
 
 Route::post('login', [UserController::class, 'login']);
 Route::get('logout', [UserController::class, 'logout'])->name('logout');

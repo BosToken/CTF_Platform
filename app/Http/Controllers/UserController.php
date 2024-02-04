@@ -45,7 +45,7 @@ class UserController extends Controller
                 $challengeAction->updateScore($id);
             }
         }
-        return redirect('challenge');
+        return redirect()->route('challenges');
     }
 
     public function scoreboard(SolverAction $solverAction){
@@ -58,4 +58,5 @@ class UserController extends Controller
         $action->logout();
         return redirect('login');
     }
+
 }
