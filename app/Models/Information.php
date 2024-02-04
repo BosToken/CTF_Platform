@@ -23,4 +23,9 @@ class Information extends Model
     {
         return $this->hasMany(Challenge::class, "information_id", "id");
     }
+
+    public function manages(): HasMany
+    {
+        return $this->hasMany(TeamManage::class, "information_id", "id");
+    }
 }

@@ -23,6 +23,15 @@
             </select>
         </div>
 
+        <label for="exampleFormControlTextarea1" class="form-label">Information</label>
+        <div class="input-group mb-3">
+            <select class="form-select" name="information_id" id="inputGroupSelect02">
+                @foreach ($informations as $information)
+                    <option value="{{ $information->id }}">{{ $information->information }}</option>
+                @endforeach
+            </select>
+        </div>
+
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Value</label>
             <input type="number" class="form-control" name="value" required>

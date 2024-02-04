@@ -15,7 +15,7 @@
             @foreach ($challenges as $key => $challenge)
                 <tr>
                     <th scope="row">{{ $key + 1 }}</th>
-                    <td><a href="challenges/detail/{{ $challenge->id }}"
+                    <td><a href="/admin/challenges/detail/{{ $challenge->id }}"
                             style="text-decoration: none;">{{ $challenge->name }}</a></td>
                     <td>{{ $challenge->category }}</td>
                     <td>{{ $challenge->value }}</td>

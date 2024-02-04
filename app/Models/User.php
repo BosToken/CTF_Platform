@@ -52,4 +52,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Solver::class, 'user_id', 'id');
     }
+
+    public function TeamManages(): HasMany
+    {
+        return $this->hasMany(TeamManage::class, "user_id", "id");
+    }
 }

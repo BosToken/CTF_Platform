@@ -13,7 +13,7 @@
             @foreach ($categories as $key => $category)
                 <tr>
                     <th scope="row">{{ $key + 1 }}</th>
-                    <td><a href="category/detail/{{ $category->id }}"
+                    <td><a href="/admin/category/detail/{{ $category->id }}"
                             style="text-decoration: none;">{{ $category->name }}</a></td>
                     <td>{{ $category->description }}</td>
                 </tr>

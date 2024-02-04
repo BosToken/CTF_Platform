@@ -76,6 +76,7 @@ class ChallengeAction
         $challenge->id = Str::uuid()->toString();
         $challenge->name = $request['name'];
         $challenge->challenge_categories_id = $request['challenge_categories_id'];
+        $challenge->information_id = $request['information_id'];
         $challenge->message = $request['message'];
         $challenge->flag = $request['flag'];
         $challenge->value = $request['value'];
@@ -87,6 +88,7 @@ class ChallengeAction
         $challenge = Challenge::find($id);
         $challenge->name = $request['name'];
         $challenge->challenge_categories_id = $request['challenge_categories_id'];
+        $challenge->information_id = $request['information_id'];
         $challenge->message = $request['message'];
         $challenge->flag = $request['flag'];
         $challenge->value = $request['value'];
