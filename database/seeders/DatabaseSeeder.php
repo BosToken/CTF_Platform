@@ -22,6 +22,8 @@ class DatabaseSeeder extends Seeder
         $user_id = Str::uuid()->toString();
         $user2_id = Str::uuid()->toString();
         $user3_id = Str::uuid()->toString();
+        $role1_id = Str::uuid()->toString();
+        $role2_id = Str::uuid()->toString();
 
         \App\Models\User::factory()->create([
             'id' => $user_id,
@@ -116,6 +118,44 @@ class DatabaseSeeder extends Seeder
             'id' => Str::uuid()->toString(),
             'user_id' => $user2_id,
             'challenge_id' => $chall3_id,
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s')
+        ]);
+
+        DB::table('roles')->insert([
+            'id' => $role1_id,
+            'name' => "Admin",
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s')
+        ]);
+
+        DB::table('roles')->insert([
+            'id' => $role2_id,
+            'name' => "User",
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s')
+        ]);
+
+        DB::table('user_roles')->insert([
+            'id' => Str::uuid()->toString(),
+            'user_id' => $user_id,
+            'role_id' => $role1_id,
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s')
+        ]);
+
+        DB::table('user_roles')->insert([
+            'id' => Str::uuid()->toString(),
+            'user_id' => $user2_id,
+            'role_id' => $role2_id,
+            'created_at' => date('Y-m-d H:i:s'),
+            'updated_at' => date('Y-m-d H:i:s')
+        ]);
+
+        DB::table('user_roles')->insert([
+            'id' => Str::uuid()->toString(),
+            'user_id' => $user3_id,
+            'role_id' => $role2_id,
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s')
         ]);

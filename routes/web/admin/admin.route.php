@@ -3,7 +3,7 @@
 use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
-Route::prefix("admin")->group(function () {
+Route::middleware(['auth', 'admin'])->prefix("admin")->group(function () {
     Route::get('challenges', [AdminController::class, 'challenges'])->name('admin-challenges');
     Route::get('categories', [AdminController::class, 'categories'])->name('admin-categories');
     Route::get('informations', [AdminController::class, 'informations'])->name('admin-informations');

@@ -57,4 +57,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(TeamManage::class, "user_id", "id");
     }
+
+    public function role(): HasOne
+    {
+        return $this->hasOne(UserRole::class, 'user_id', 'id');
+    }
 }

@@ -15,6 +15,17 @@
                 required>
         </div>
 
+        <label for="exampleFormControlTextarea1" class="form-label">Role</label>
+        <div class="input-group mb-3">
+            
+            <select class="form-select" name="role_id" id="inputGroupSelect02">
+                <option selected value="{{$user->role->id}}_{{ $user->role->role->id }}">{{ $user->role->role->name }}</option>
+                @foreach ($roles as $role)
+                    <option value="{{$user->role->id}}_{{ $role->id }}">{{ $role->name }}</option>
+                @endforeach
+            </select>
+        </div>
+
         <button type="submit" class="btn btn-success">Update</button>
         <a href="/admin/user/delete/{{ $user->id }}" class="btn btn-danger">Delete</a>
     </form>

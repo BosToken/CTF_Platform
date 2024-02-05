@@ -2,6 +2,7 @@
 
 namespace App\View\Components\navbar;
 
+use App\Models\User;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
@@ -12,9 +13,15 @@ class Navbar extends Component
     /**
      * Create a new component instance.
      */
-    public $user;
+    public $user, $isAdmin;
     public function __construct()
     {
+        $checkRole = User::with('role.role')->find(Auth::user()->id);
+        if ($checkRole->role->role->name === "Admin") {
+            $this->isAdmin = 1;
+        } else {
+            $this->isAdmin = 0;
+        }
         $this->user = Auth::user();
     }
 

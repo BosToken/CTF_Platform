@@ -15,11 +15,6 @@ class TeamManageAction
         return TeamManage::with('user', 'information', 'team')->get();
     }
 
-    // public function getTeamById($id)
-    // {
-    //     return Team::find($id);
-    // }
-
     public function storeManage($request)
     {
         $team = new TeamManage();
@@ -32,10 +27,4 @@ class TeamManageAction
     public function deleteManage($id){
         TeamManage::find($id)->delete();
     }
-
-    // public function updateTeam($request, $id){
-    //     $team = Team::find($id);
-    //     $team->name = $request['name'];
-    //     $team->save();
-    // }
 }

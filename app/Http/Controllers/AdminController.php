@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Actions\CategoryAction;
 use App\Actions\ChallengeAction;
 use App\Actions\InformationAction;
+use App\Actions\RoleAction;
 use App\Actions\TeamAction;
 use App\Actions\TeamManageAction;
 use App\Actions\UserAction;
+use App\Actions\UserRoleAction;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 
@@ -123,9 +125,9 @@ class AdminController extends Controller
         return redirect()->route('admin-informations');
     }
 
-    public function storeUser(Request $request, UserAction $userAction)
+    public function storeUser(Request $request, UserAction $userAction, UserRoleAction $roleAction)
     {
-        $userAction->storeUser($request);
+        $userAction->storeUser($request, $roleAction);
         return redirect()->route('admin-users');
     }
 
@@ -163,10 +165,11 @@ class AdminController extends Controller
         return view('page.admin.detail-information', compact('information'));
     }
 
-    public function detailUser($id, UserAction $userAction)
+    public function detailUser($id, UserAction $userAction, RoleAction $roleAction )
     {
+        $roles = $roleAction->getRole();
         $user = $userAction->getUserById($id);
-        return view('page.admin.detail-user', compact('user'));
+        return view('page.admin.detail-user', compact('user', 'roles'));
     }
 
     public function detailTeam($id, TeamAction $teamAction)
@@ -199,9 +202,11 @@ class AdminController extends Controller
         return redirect()->route('admin-teams');
     }
 
-    public function updateUser(Request $request, $id, UserAction $userAction)
+    public function updateUser(Request $request, $id, UserAction $userAction, UserRoleAction $userRoleAction)
     {
+        list($user_role_id, $role_id) = explode("_", $request['role_id']);
         $userAction->updateUser($request, $id);
+        $userRoleAction->updateRole($user_role_id, $role_id);
         return redirect()->route('admin-users');
     }
 

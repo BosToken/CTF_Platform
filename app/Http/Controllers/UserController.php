@@ -8,9 +8,11 @@ use App\Actions\ChallengeAction;
 use App\Actions\CategoryAction;
 use App\Actions\SolverAction;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
+
     public function login(UserRequest $request, AuthAction $action)
     {
 
@@ -48,7 +50,8 @@ class UserController extends Controller
         return redirect()->route('challenges');
     }
 
-    public function scoreboard(SolverAction $solverAction){
+    public function scoreboard(SolverAction $solverAction)
+    {
         $users = $solverAction->score();
         return view('page.user.scoreboard', compact('users'));
     }
@@ -58,5 +61,4 @@ class UserController extends Controller
         $action->logout();
         return redirect('login');
     }
-
 }

@@ -39,9 +39,8 @@ class SolverAction
         return User::with('solvers.challenge')
             ->get()
             ->map(function ($user) {
-                // Check if solvers is empty
                 if ($user->solvers->isEmpty()) {
-                    return null; // Skip this user if solvers is empty
+                    return null;
                 }
 
                 $score = $user->solvers->sum(function ($solve) {
