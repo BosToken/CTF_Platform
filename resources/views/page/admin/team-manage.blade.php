@@ -53,7 +53,7 @@
                       <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
                         <p class="block font-sans text-sm antialiased font-bold leading-none text-blue-gray-900 opacity-70"> Full Name </p>
                       </th>
-                      <th class="text-right p-4 border-b border-blue-gray-100 bg-blue-gray-50">
+                      <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
                         <p class="block font-sans text-sm antialiased font-bold leading-none text-blue-gray-900 opacity-70"> Action </p>
                       </th>
                     </tr>
@@ -75,10 +75,7 @@
                                 <p class="block font-sans text-sm antialiased font-bold leading-normal text-blue-gray-900">{{$manage->user->name}}</p>
                             </td>
                             <td class="p-4">
-                                <p class="block font-sans text-sm antialiased font-bold leading-normal text-blue-gray-900">Delete</p>
-                            </td>
-                            <td class="text-right p-4">
-                                <button type="button" class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Red</button>
+                                <a href="/admin/team-manage/delete/{{ $manage->id }}" type="button" class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 shadow-lg shadow-red-500/50 dark:shadow-lg dark:shadow-red-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Delete</a>
                             </td>
                         </tr>
                     @endforeach

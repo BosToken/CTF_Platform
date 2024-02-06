@@ -46,11 +46,11 @@
                     <h2 class="text-center mb-1 text-xl font-bold leading-tight tracking-tight  md:text-2xl text-white">
                         Create Manage
                     </h2>
-                    <form class="mt-4 space-y-4 lg:mt-5 md:space-y-5" action="{{ route('admin-store-user') }}" method="post">
+                    <form class="mt-4 space-y-4 lg:mt-5 md:space-y-5" action="{{ route('admin-store-team-manage') }}" method="post">
                         @csrf
                         <div>
                             <label class="block mb-2 text-sm font-medium text-white">Competition</label>
-                            <select class="text-sm font-medium border text-white text-medium sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 w-full bg-gray-700 border-gray-600 placeholder-gray-400 focus:ring-blue-500 focus:border-blue-500 p-2.5 inline-flex items-center justify-between">
+                            <select class="text-sm font-medium border text-white text-medium sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 w-full bg-gray-700 border-gray-600 placeholder-gray-400 focus:ring-blue-500 focus:border-blue-500 p-2.5 inline-flex items-center justify-between" name="information_id">
                                 @foreach ($informations as $information)
                                 <option value="{{ $information->id }}">{{ $information->information }}</option>
                                 @endforeach
@@ -58,7 +58,7 @@
                         </div>
                         <div>
                             <label class="block mb-2 text-sm font-medium text-white">Team</label>
-                            <select class="text-sm font-medium border text-white text-medium sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 w-full bg-gray-700 border-gray-600 placeholder-gray-400 focus:ring-blue-500 focus:border-blue-500 p-2.5 inline-flex items-center justify-between">
+                            <select class="text-sm font-medium border text-white text-medium sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 w-full bg-gray-700 border-gray-600 placeholder-gray-400 focus:ring-blue-500 focus:border-blue-500 p-2.5 inline-flex items-center justify-between" name="team_id">
                                 @foreach ($teams as $team)
                                 <option value="{{ $team->id }}">{{ $team->name }}</option>
                                 @endforeach
@@ -66,7 +66,7 @@
                         </div>
                         <div>
                             <label class="block mb-2 text-sm font-medium text-white">Username</label>
-                            <select class="text-sm font-medium border text-white text-medium sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 w-full bg-gray-700 border-gray-600 placeholder-gray-400 focus:ring-blue-500 focus:border-blue-500 p-2.5 inline-flex items-center justify-between">
+                            <select class="text-sm font-medium border text-white text-medium sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 w-full bg-gray-700 border-gray-600 placeholder-gray-400 focus:ring-blue-500 focus:border-blue-500 p-2.5 inline-flex items-center justify-between" name="user_id">
                                 @foreach ($users as $user)
                                     <option value="{{ $user->id }}">{{ $user->username }} ({{$user->name}})</option>
                                 @endforeach

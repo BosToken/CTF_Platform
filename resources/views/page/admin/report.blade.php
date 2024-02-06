@@ -98,6 +98,7 @@
                         <th scope="col">Username</th>
                         <th scope="col">FullName</th>
                         <th scope="col">Team</th>
+                        <th scope="col">Total Solve</th>
                         <th scope="col">Training Score</th>
                     </tr>
                 </thead>
@@ -112,6 +113,7 @@
                             <td>{{ $user->user->username }}</td>
                             <td>{{ $user->user->name }}</td>
                             <td>{{ $user->team->name }}</td>
+                            <td>{{ count($user->user->solvers) }}</td>
                             <td>{{ $userScore }}</td>
                         </tr>
                     @endforeach
