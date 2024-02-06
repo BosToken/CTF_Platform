@@ -28,9 +28,9 @@
                     <p class="text-2xl font-medium text-gray-900 dark:text-white">"Ahh Cupu Kamu!"</p>
                 </blockquote>
                 <figcaption class="flex items-center justify-center mt-6 space-x-3">
-                    <img class="w-6 h-6 rounded-full" src="https://krs.umm.ac.id/Poto/2021/202110370311262.JPG" alt="profile picture">
+                    <img class="w-6 h-6 rounded-full" src="https://avatars.githubusercontent.com/u/46486733?s=400&u=688011bab14ff757ce2a3aaeb6a936c31f93dba8&v=4" alt="profile picture">
                     <div class="flex items-center divide-x-2 divide-gray-500 dark:divide-gray-700">
-                        <div class="pr-3 font-medium text-gray-900 dark:text-white">Faiz Diandra Maulana</div>
+                        <div class="pr-3 font-medium text-gray-900 dark:text-white">BosToken</div>
                         <div class="pl-3 text-sm font-light text-gray-500 dark:text-gray-400">Head of Division Competition</div>
                     </div>
                 </figcaption>
