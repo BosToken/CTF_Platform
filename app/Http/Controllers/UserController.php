@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Closure;
 use App\Http\Requests\UserRequest;
 use App\Actions\AuthAction;
 use App\Actions\ChallengeAction;
@@ -13,13 +14,13 @@ use Illuminate\Support\Facades\Auth;
 class UserController extends Controller
 {
 
-    public function login(UserRequest $request, AuthAction $action)
+    public function login(UserRequest $userRequest, AuthAction $action)
     {
 
-        $login = $action->loginUser($request);
+        $login = $action->loginUser($userRequest);
 
         if ($login) {
-            return redirect('profile');
+            return redirect()->route('challenges');
         }
         return back();
     }
@@ -59,6 +60,6 @@ class UserController extends Controller
     public function logout(AuthAction $action)
     {
         $action->logout();
-        return redirect('login');
+        return redirect()->route('welcome');
     }
 }
