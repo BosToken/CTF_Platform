@@ -32,7 +32,7 @@
                   <thead>
                     <tr>
                       <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
-                        <p class="block font-sans text-sm antialiased font-bold leading-none text-blue-gray-900 opacity-70"> No </p>
+                        <p class="text-center block font-sans text-sm antialiased font-bold leading-none text-blue-gray-900 opacity-70"> No </p>
                       </th>
                       <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
                         <p class="text-center block font-sans text-sm antialiased font-bold leading-none text-blue-gray-900 opacity-70"> Team Name </p>
@@ -42,8 +42,8 @@
                   <tbody>
                     @foreach ($teams as $key => $team)
                         <tr class="even:bg-blue-gray-50/50">
-                            <th class="p-4" scope="row">{{ $key + 1 }}</th>
-                            <td class="p-4">
+                            <th class="p-4 text-center" scope="row">{{ $key + 1 }}</th>
+                            <td class="p-4 text-center">
                                 <a href="/admin/team/detail/{{ $team->id }}" style="text-decoration: none;">{{ $team->name }}</a>
                             </td>
                         </tr>

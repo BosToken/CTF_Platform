@@ -85,7 +85,7 @@
                     <a href="{{route('admin-categories')}}" class="block py-2 px-3 md:p-0 rounded md:hover:text-[#D83639] d:hover:text-[#D83639] text-white hover:bg-gray-700 hover:text-white md:hover:bg-transparent border-gray-700">Categories</a>
                 </li>
                 <li>
-                    <a href="{{route('admin-informations')}}" class="block py-2 px-3 md:p-0 rounded md:hover:text-[#D83639] d:hover:text-[#D83639] text-white hover:bg-gray-700 hover:text-white md:hover:bg-transparent border-gray-700">Information</a>
+                    <a href="{{route('admin-informations')}}" class="block py-2 px-3 md:p-0 rounded md:hover:text-[#D83639] d:hover:text-[#D83639] text-white hover:bg-gray-700 hover:text-white md:hover:bg-transparent border-gray-700">Informations</a>
                 </li>
                 <li>
                     <a href="{{route('admin-users')}}" class="block py-2 px-3 md:p-0 rounded md:hover:text-[#D83639] d:hover:text-[#D83639] text-white hover:bg-gray-700 hover:text-white md:hover:bg-transparent border-gray-700">Users</a>
