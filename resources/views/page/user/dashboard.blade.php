@@ -1,5 +1,5 @@
 <x-layout.user>
-    <title>Dashboard</title>
+    <title>LEGICOMP | Dashboard</title>
     <div class="card">
         <div class="card-body">
             This is some text within a card body.

@@ -1,5 +1,5 @@
 <x-layout.user>
-    <title>Challenge</title>
+    <title>LEGICOMP | Challenges</title>
 
     <h1 class="text-center mb-3">Challenge</h1>
 
