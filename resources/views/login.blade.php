@@ -1,7 +1,7 @@
 <x-layout.user>
     <section class="bg-[#161A1D]">
-        <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-            <a href="#" class="flex items-center mb-6 text-2xl font-semibold text-white">
+        <div class="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-full mt-24 lg:py-0">
+            <a href="#" class="flex items-center mb-6 text-2xl font-bold text-white">
                 <img class="w-8 h-8 mr-2" src="img/confidential.png" alt="logo">
                 Login Legium Competition     
             </a>
@@ -27,6 +27,7 @@
                     </form>
                 </div>
             </div>
+            <span class="mt-6 block text-sm sm:text-center text-gray-400">© <a href="/" class="hover:underline hover:text-white">Competition Division 2024</a> - All Rights Reserved.</span>
         </div>
       </section>
 </x-layout.user>
