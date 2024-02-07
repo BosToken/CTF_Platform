@@ -5,8 +5,8 @@
         <div class="grid max-w-screen-xl px-4 py-8 mx-auto lg:gap-8 xl:gap-0 lg:py-16 lg:grid-cols-12">
             <div class="mr-auto place-self-center lg:col-span-7">
                 <h1 class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-7xl text-white">LEGIUM COMPETITION</h1>
-                <p class="max-w-2xl mb-6 font-light lg:mb-8 md:text-lg lg:text-xl text-gray-400">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolore ad magni sequi nobis molestias eos cupiditate, dicta ducimus error fuga neque, optio alias architecto deleniti dolores, quam aspernatur autem odio.</p>
-                <a href="{{route('challenges')}}" class="bg-[#D83639] hover:bg-red-700 focus:ring-red-700 px-10 inline-flex items-center justify-center px-8 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 focus:ring-primary-900">
+                <p class="max-w-2xl mb-6 font-light lg:mb-8 md:text-lg lg:text-xl text-gray-400">Legium Competition atau disingkat <a class="text-white font-bold">LEGICOMP</a> merupakan salah satu program kerja yang memberikan wadah kepada anggota Kaliber yang berkompeten untuk mengikuti perlombaan. LEGICOMP berfungsi untuk memfasilitasi segala kebutuhan kompetitor untuk perlombaan seperti pelatihan akademis, ruangan, dan lain lain.</p>
+                <a href="{{route('challenges')}}" class="bg-[#D83639] hover:bg-red-700 focus:ring-red-700 inline-flex items-center justify-center px-8 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 focus:ring-primary-900">
                     Let's Hack
                     <svg class="w-5 h-5 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                 </a>
@@ -44,7 +44,7 @@
             <img class="w-full dark:block" src="https://flowbite.s3.amazonaws.com/blocks/marketing-ui/cta/cta-dashboard-mockup-dark.svg" alt="dashboard image">
             <div class="mt-4 md:mt-0">
                 <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Legium Competition Feature</h2>
-                <p class="mb-6 font-light text-gray-500 md:text-lg dark:text-gray-400"><strong>BosToken</strong> dan <strong>moonap</strong>, yang sering merasa gabut, memutuskan untuk menciptakan platform Legicomp, mengubah kebosanan mereka menjadi kontribusi positif bagi kota kecil mereka. Ide brilian ini tidak hanya menghibur mereka, tetapi juga memberikan manfaat signifikan bagi warga sekitar.</p>
+                <p class="mb-6 font-light text-gray-500 md:text-lg dark:text-gray-400"><a class="font-bold text-white">BosToken</a> dan <a class="font-bold text-white">moonap</a>, yang sering merasa gabut, memutuskan untuk menciptakan platform Legicomp, mengubah kebosanan mereka menjadi kontribusi positif bagi kota kecil mereka. Ide brilian ini tidak hanya menghibur mereka, tetapi juga memberikan manfaat signifikan bagi warga sekitar.</p>
                 <ul class="max-w-md space-y-1 text-gray-500 list-inside dark:text-gray-400">
                     <li class="flex items-center">
                         <svg class="w-3.5 h-3.5 me-2 text-green-500 dark:text-green-400 flex-shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
