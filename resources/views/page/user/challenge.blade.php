@@ -228,7 +228,7 @@
                                     @csrf
                                     <div class="grid grid-cols-6 gap-2">
                                         <div class="col-span-5">
-                                            <input type="text" name="flag" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Flag">
+                                            <input type="text" name="flag" class="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Flag" required="">
                                         </div>
                                         <div>
                                             <button type="submit" class="w-full text-white bg-[#D83639] hover:bg-red-700 focus:ring-red-700 font-bold rounded-lg text-sm px-5 py-2.5 text-center focus:ring-primary-800">Submit</button>
@@ -265,13 +265,11 @@
     </div>
     <script>
         function toggleCard(index) {
-            // Hide all right section cards
             const allRightCards = document.querySelectorAll('[id^="rightCard"]');
             allRightCards.forEach(card => {
                 card.classList.add('hidden');
             });
 
-            // Show the clicked right section card
             const rightCard = document.getElementById(`rightCard${index}`);
             if (rightCard) {
                 rightCard.classList.remove('hidden');
