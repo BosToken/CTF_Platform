@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('challenge_categories', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('name');
-            $table->text('description');
+            $table->longText('description');
             $table->timestamps();
         });
     }

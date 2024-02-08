@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('informations', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('information');
-            $table->text('description');
+            $table->longText('description');
             $table->timestamps();
         });
     }

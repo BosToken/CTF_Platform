@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->foreignUuid('challenge_categories_id')->references('id')->on('challenge_categories');
             $table->foreignUuid('information_id')->references('id')->on('informations');
-            $table->text('message');
+            $table->longText('message');
             $table->string('flag');
             $table->string('file')->nullable();
 
