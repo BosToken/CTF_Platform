@@ -110,9 +110,9 @@
             @foreach ($categories as $category)
                 @foreach ($solveChallenges as $solveChallenge)
                     @if ($solveChallenge->challenge->category->name == $category->name)
-                        <div class="bg-[#2dad2d] rounded-xl mb-3 hover:bg-[#2c742c] hover:border hover:border-green-600 cursor-pointer"
+                        <div class="bg-[#37d63e] shadow shadow-green-500 rounded-xl mb-3 hover:bg-[#2c742c] hover:border hover:border-green-600 cursor-pointer opacity-70"
                             data-index="{{ $indexLeft }}" onclick="toggleCard({{ $indexLeft }})">
-                            <div class="px-6 py-4 shadow overflow-auto">
+                            <div class="px-6 py-4 shadow overflow-auto ">
                                 <div class="text-white font-bold text-xl mb-2">
                                     {{ $solveChallenge->challenge->name }}<span
                                         class="text-[#ff181c] px-2">({{ $solveChallenge->challenge->value }})</span>
@@ -145,7 +145,7 @@
                 @endforeach
                 @foreach ($unsolveChallenges as $unsolveChallenge)
                     @if ($unsolveChallenge->category->name == $category->name)
-                        <div class="bg-[#31373b] rounded-xl mb-3 hover:bg-[#181818] hover:cursor-pointer hover:border-red-500 hover:border"
+                        <div class="bg-[#31373b] rounded-xl mb-3 hover:bg-[#181818] hover:cursor-pointer hover:border-red-500 hover:border shadow shadow-red-500"
                             data-index="{{ $indexLeft }}" onclick="toggleCard({{ $indexLeft }})">
                             <div class="px-6 py-4 shadow overflow-auto">
                                 <div class="text-white font-bold text-xl mb-2">{{ $unsolveChallenge->name }}<span
@@ -186,7 +186,7 @@
             @foreach ($categories as $category)
                 @foreach ($solveChallenges as $solveChallenge)
                     @if ($solveChallenge->challenge->category->name == $category->name)
-                        <div class="hidden bg-[#31373b] border border-[#2dad2d] rounded-xl mb-3"
+                        <div class="hidden bg-[#31373b] border border-[#2dad2d] shadow-md shadow-green-800 rounded-xl mb-3"
                             id="rightCard{{ $indexRight }}">
                             <div class="px-6 py-4 shadow">
                                 <div class="text-white font-bold text-4xl mb-1 text-center ">
@@ -252,7 +252,7 @@
                 @endforeach
                 @foreach ($unsolveChallenges as $unsolveChallenge)
                     @if ($unsolveChallenge->category->name == $category->name)
-                        <div class="hidden bg-[#31373b] rounded-xl mb-3 shadow-lg" id="rightCard{{ $indexRight }}">
+                        <div class="hidden bg-[#31373b] rounded-xl mb-3 shadow-md shadow-red-500" id="rightCard{{ $indexRight }}">
                             <div class="px-6 py-4 shadow">
                                 <div class="text-white font-bold text-4xl mb-1 text-center ">
                                     {{ $unsolveChallenge->name }}<span
