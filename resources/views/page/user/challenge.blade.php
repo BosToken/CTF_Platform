@@ -237,7 +237,7 @@
                                         <tr class="even:bg-blue-gray-50/50">
                                             <th class="p-4" scope="row">{{ $index += 1 }}</th>
                                             <td class="p-4">
-                                                <a href="/admin/user/detail/" style="text-decoration: none;">
+                                                <a href="/user/{{$solve->user->username}}" style="text-decoration: none;">
                                                     {{ $solve->user->username }}
                                                 </a>
                                             </td>
@@ -303,7 +303,7 @@
                                         <tr class="even:bg-blue-gray-50/50">
                                             <th class="p-4" scope="row">{{ $index += 1 }}</th>
                                             <td class="p-4">
-                                                <a href="/admin/user/detail/" style="text-decoration: none;">
+                                                <a href="/user/{{$solve->user->username}}" style="text-decoration: none;">
                                                     {{ $solve->user->username }}
                                                 </a>
                                             </td>
