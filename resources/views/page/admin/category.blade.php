@@ -30,7 +30,7 @@
             <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
             </div>
             <div class="relative flex flex-col w-full h-full overflow-hidden text-white bg-[#282d31] shadow-md bg-clip-border rounded-xl">
-                <table class="w-full text-left table-auto min-w-max">
+                <table class="w-full text-left table-fixed min-w-max">
                   <thead>
                     <tr>
                       <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
@@ -46,15 +46,15 @@
                   </thead>
                   <tbody>
                     @foreach ($categories as $key => $category)
-                    <tr class="even:bg-blue-gray-50/50">
-                        <th class="p-4" scope="row">{{ $key + 1 }}</th>
-                        <td class="p-4">
-                            <a href="/admin/category/detail/{{ $category->id }}" style="text-decoration: none;">{{ $category->name }}</a>
-                        </td>
-                        <td class="p-4 whitespace-normal">
-                            <p class="block font-sans text-sm antialiased font-bold leading-normal">{{ $category->description }}</p>
-                        </td>
-                    </tr>
+                      <tr class="even:bg-blue-gray-50/50">
+                          <th class="p-4" scope="row">{{ $key + 1 }}</th>
+                          <td class="p-4">
+                              <a href="/admin/category/detail/{{ $category->id }}" style="text-decoration: none;">{{ $category->name }}</a>
+                          </td>
+                          <td class="p-4 whitespace-normal">
+                              <p class="block font-sans text-sm antialiased font-bold leading-normal">{{ $category->description }}</p>
+                          </td>
+                      </tr>
                     @endforeach
                   </tbody>
                 </table>
