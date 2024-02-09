@@ -57,8 +57,8 @@ class AdminController extends Controller
         $data = [
             'information' => $information
         ];
-        $pdf = Pdf::loadView('page.admin.report', $data);
-        return $pdf->download('Training_Report-'.$title.'.pdf');
+        $pdf = Pdf::loadView('page.admin.report-view', $data);
+        return $pdf->download('LEGICOMP_Training-Report_'.$title.'.pdf');
     }
 
     public function dashboard(InformationAction $informationAction, TeamManageAction $teamManageAction, TeamAction $teamAction, UserAction $userAction)
