@@ -58,11 +58,6 @@
                     </button>
                     <div id="dropdownNavbar" class="z-10 hidden font-normal bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600 absolute right-0">
                         <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
-                        {{-- @if ($isAdmin)
-                            <li class="nav-item">
-                                <a class="nav-link active" href="{{ route('admin-dashboard') }}">Admin Panels</a>
-                            </li>
-                        @endif --}}
                             <li>
                                 <a href="{{ route('user-profile') }}" class="block px-4 py-2 text-white hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-[#D83639]">Profile</a>
                             </li>
@@ -85,7 +80,7 @@
                     <a href="{{route('admin-categories')}}" class="block py-2 px-3 md:p-0 rounded md:hover:text-[#D83639] d:hover:text-[#D83639] text-white hover:bg-gray-700 hover:text-white md:hover:bg-transparent border-gray-700">Categories</a>
                 </li>
                 <li>
-                    <a href="{{route('admin-informations')}}" class="block py-2 px-3 md:p-0 rounded md:hover:text-[#D83639] d:hover:text-[#D83639] text-white hover:bg-gray-700 hover:text-white md:hover:bg-transparent border-gray-700">Informations</a>
+                    <a href="{{route('admin-informations')}}" class="block py-2 px-3 md:p-0 rounded md:hover:text-[#D83639] d:hover:text-[#D83639] text-white hover:bg-gray-700 hover:text-white md:hover:bg-transparent border-gray-700">Competition</a>
                 </li>
                 <li>
                     <a href="{{route('admin-users')}}" class="block py-2 px-3 md:p-0 rounded md:hover:text-[#D83639] d:hover:text-[#D83639] text-white hover:bg-gray-700 hover:text-white md:hover:bg-transparent border-gray-700">Users</a>

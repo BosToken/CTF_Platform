@@ -1,31 +1,7 @@
-{{-- <x-layout.admin>
-    <title>Admin Information</title>
-    <h1 class="text-center mb-3"><a href="{{ route('admin-create-information') }}">Information</a></h1>
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">No</th>
-                <th scope="col">Name</th>
-                <th scope="col">Description</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($informations as $key => $information)
-                <tr>
-                    <th scope="row">{{ $key + 1 }}</th>
-                    <td><a href="/admin/information/detail/{{ $information->id }}"
-                            style="text-decoration: none;">{{ $information->information }}</a></td>
-                    <td>{{ $information->description }}</td>
-                </tr>
-            @endforeach
-        </tbody>
-    </table>
-</x-layout.admin> --}}
-
 <x-layout.admin>
     <section>
         <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16">
-            <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white"><a class="hover:underline" href="{{ route('admin-create-information') }}">Informations</a></h1>
+            <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white"><a class="hover:underline" href="{{ route('admin-create-information') }}">Competition</a></h1>
             <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-400"></p>
             <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
             </div>

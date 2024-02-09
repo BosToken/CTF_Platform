@@ -9,6 +9,7 @@
 </head>
 <body class="bg-[#161A1D] overflow-auto scrollbar-hide">
     <x-navbar.navbar-admin></x-navbar.navbar-admin>
+    <x-scrollbar.scrollbar></x-scrollbar.scrollbar>
     {{ $slot }}
 </body>
 </html>

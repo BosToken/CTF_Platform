@@ -10,6 +10,7 @@ use App\Actions\TeamAction;
 use App\Actions\TeamManageAction;
 use App\Actions\UserAction;
 use App\Actions\UserRoleAction;
+use App\Models\User;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 
@@ -60,10 +61,14 @@ class AdminController extends Controller
         return $pdf->download('Training_Report-'.$title.'.pdf');
     }
 
-    public function dashboard(InformationAction $informationAction)
+    public function dashboard(InformationAction $informationAction, TeamManageAction $teamManageAction, TeamAction $teamAction, UserAction $userAction)
     {
+        $user = count($userAction->getuser());
+        $team =  count($teamAction->getTeam());
+        $participant = count($teamManageAction->getTeamManage()->groupBy('user_id'));
         $informations = $informationAction->getAllInformation();
-        return view('page.admin.dashboard', compact('informations'));
+        $total_competition = count($informations);
+        return view('page.admin.dashboard', compact('informations', 'total_competition', 'participant', 'team', 'user'));
     }
 
     public function users(UserAction $userAction)

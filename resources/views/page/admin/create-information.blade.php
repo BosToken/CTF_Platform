@@ -19,12 +19,12 @@
 <x-layout.admin>
     <section>
         <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16">
-            <h1 class="text-center mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white"><a>Informations</a></h1>
+            <h1 class="text-center mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white"><a>Competition</a></h1>
             <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-400"></p>
             <div class="flex items-flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 ">
                 <div class="w-full p-6 rounded-lg md:mt-0 sm:max-w-screen-md bg-[#282d31] sm:p-8">
                     <h2 class="text-center mb-1 text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
-                        Create Informations
+                        Create Competition
                     </h2>
                     <form class="mt-4 space-y-4 lg:mt-5 md:space-y-5" action="{{ route('admin-store-information') }}" method="post">
                         @csrf
