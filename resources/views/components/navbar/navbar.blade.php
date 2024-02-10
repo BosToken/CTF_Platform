@@ -22,7 +22,7 @@
                     <div id="dropdownNavbar"
                         class="z-10 hidden font-normal  divide-y divide-gray-100 rounded-lg shadow w-44 bg-[#282d31] dark:divide-gray-600 absolute right-0">
                         <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
-                            @if (Auth::user()->role->role === "Admin")
+                            @if (Auth::user()->role->role->name === "Admin")
                                 <li>
                                     <a href="{{ route('admin-dashboard') }}"
                                         class="block px-4 py-2 text-white hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-[#D83639]">Admin
