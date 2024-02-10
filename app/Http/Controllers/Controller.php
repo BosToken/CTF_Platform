@@ -6,6 +6,7 @@ use App\Actions\InformationAction;
 use Illuminate\Routing\Controller as BaseController;
 use App\Actions\UserAction;
 use App\Models\Role;
+use Illuminate\Support\Facades\Auth;
 
 class Controller extends BaseController
 {
@@ -23,6 +24,7 @@ class Controller extends BaseController
 
     public function debug(InformationAction $action)
     {
-        return Role::where('name', 'User')->get('id');
+        return Auth::user()->role->role;
+        // return Role::where('name', 'User')->get('id');
     }
 }

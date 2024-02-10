@@ -14,10 +14,8 @@ class Navbar extends Component
      * Create a new component instance.
      */
     public $user;
-    public $checkRole;
     public function __construct()
     {
-        $this->checkRole = User::with('role.role')->find(Auth::user()->id);
         $this->user = Auth::user();
     }
 
