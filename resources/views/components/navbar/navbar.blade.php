@@ -1,38 +1,3 @@
-{{-- <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="/">Legicomp</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{ route('users') }}">Users</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{ route('scoreboard') }}">Scoreboard</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{ route('challenges') }}">Challenge</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav">
-                @if ($isAdmin)
-                    <li class="nav-item">
-                        <a class="nav-link active" href="{{ route('admin-dashboard') }}">Admin Page</a>
-                    </li>
-                @endif
-                <li class="nav-item">
-                    <a class="nav-link active" href="{{ route('user-profile') }}">Profile</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="{{ route('logout') }}">Logout</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav> --}}
 <div>
     <nav class="border-gray-200 bg-[#161A1D]">
         <div class="max-w-screen-2xl flex flex-wrap justify-between mx-auto p-4">
@@ -57,6 +22,16 @@
                     <div id="dropdownNavbar"
                         class="z-10 hidden font-normal  divide-y divide-gray-100 rounded-lg shadow w-44 bg-[#282d31] dark:divide-gray-600 absolute right-0">
                         <ul class="py-2 text-sm text-gray-700 dark:text-gray-400" aria-labelledby="dropdownLargeButton">
+                            @php
+                                $isAdmin = 0;
+                                if (Auth::check()) {
+                                    if ($checkRole->role->role->name === 'Admin') {
+                                        $isAdmin = 1;
+                                    } else {
+                                        $isAdmin = 0;
+                                    }
+                                }
+                            @endphp
                             @if ($isAdmin)
                                 <li>
                                     <a href="{{ route('admin-dashboard') }}"

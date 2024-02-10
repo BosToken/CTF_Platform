@@ -13,18 +13,12 @@ class Navbar extends Component
     /**
      * Create a new component instance.
      */
-    public $user, $isAdmin = 0;
+    public $user;
+    public $checkRole;
     public function __construct()
     {
-        if (Auth::check()) {
-            $checkRole = User::with('role.role')->find(Auth::user()->id);
-            if ($checkRole->role->role->name === "Admin") {
-                $this->isAdmin = 1;
-            } else {
-                $this->isAdmin = 0;
-            }
-            $this->user = Auth::user();
-        }
+        $this->checkRole = User::with('role.role')->find(Auth::user()->id);
+        $this->user = Auth::user();
     }
 
     /**
