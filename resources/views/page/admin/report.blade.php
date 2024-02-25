@@ -187,61 +187,99 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="px-6 pt-4 pb-2">
-                        <table class="w-full table-auto min-w-max text-white text-center">
-                            <thead>
-                                <tr>
-                                    <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
-                                        <p
-                                            class="block font-sans text-sm antialiased font-bold leading-none text-blue-gray-900 opacity-70">
-                                            # </p>
-                                    </th>
-                                    <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
-                                        <p
-                                            class="block font-sans text-sm antialiased font-bold leading-none text-blue-gray-900 opacity-70">
-                                            Username </p>
-                                    </th>
-                                    <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
-                                        <p
-                                            class="block font-sans text-sm antialiased font-bold leading-none text-blue-gray-900 opacity-70">
-                                            FullName </p>
-                                    </th>
-                                    <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
-                                        <p
-                                            class="block font-sans text-sm antialiased font-bold leading-none text-blue-gray-900 opacity-70">
-                                            Team </p>
-                                    </th>
-                                    <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
-                                        <p
-                                            class="block font-sans text-sm antialiased font-bold leading-none text-blue-gray-900 opacity-70">
-                                            Total Solve </p>
-                                    </th>
-                                    <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
-                                        <p
-                                            class="block font-sans text-sm antialiased font-bold leading-none text-blue-gray-900 opacity-70">
-                                            Training Score </p>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($information->manages as $key => $user)
-                                    @php
-                                        $userScore = $user->user->solvers->whereIn('challenge_id', $challenge_id)->sum('challenge.value');
-                                    @endphp
-
-                                    <tr>
-                                        <td class="p-4">{{ $key + 1 }}</td>
-                                        <td class="p-4">{{ $user->user->username }}</td>
-                                        <td class="p-4">{{ $user->user->name }}</td>
-                                        <td class="p-4">{{ $user->team->name }}</td>
-                                        <td class="p-4">{{ count($user->user->solvers) }}</td>
-                                        <td class="p-4">{{ $userScore }}</td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
                 </div>
+
+
+                @foreach ($information->manages as $key => $user)
+                    @php
+                        $userScore = $user->user->solvers->whereIn('challenge_id', $challenge_id)->sum('challenge.value');
+                    @endphp
+                    <div class="mb-4">
+                        <div class="bg-[#31373b] rounded-xl mb-3">
+                            <div class="px-6 py-4 shadow overflow-auto">
+                                <table class="w-full table-auto min-w-max text-white text-center">
+                                    <thead>
+                                        <tr>
+                                            <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
+                                                <p
+                                                    class="block font-sans text-sm antialiased font-bold leading-none text-blue-gray-900 opacity-70">
+                                                    Username </p>
+                                            </th>
+                                            <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
+                                                <p
+                                                    class="block font-sans text-sm antialiased font-bold leading-none text-blue-gray-900 opacity-70">
+                                                    FullName </p>
+                                            </th>
+                                            <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
+                                                <p
+                                                    class="block font-sans text-sm antialiased font-bold leading-none text-blue-gray-900 opacity-70">
+                                                    Team </p>
+                                            </th>
+                                            <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
+                                                <p
+                                                    class="block font-sans text-sm antialiased font-bold leading-none text-blue-gray-900 opacity-70">
+                                                    Total Solve </p>
+                                            </th>
+                                            <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
+                                                <p
+                                                    class="block font-sans text-sm antialiased font-bold leading-none text-blue-gray-900 opacity-70">
+                                                    Training Score </p>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="p-4">{{ $user->user->username }}</td>
+                                            <td class="p-4">{{ $user->user->name }}</td>
+                                            <td class="p-4">{{ $user->team->name }}</td>
+                                            <td class="p-4">{{ count($user->user->solvers) }}</td>
+                                            <td class="p-4">{{ $userScore }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="px-6 py-4 shadow overflow-auto">
+                                <table class="w-full table-auto min-w-max text-white text-center">
+                                    <thead>
+                                        <tr>
+                                            <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
+                                                <p
+                                                    class="block font-sans text-sm antialiased font-bold leading-none text-blue-gray-900 opacity-70">
+                                                    Challenge Name </p>
+                                            </th>
+                                            <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
+                                                <p
+                                                    class="block font-sans text-sm antialiased font-bold leading-none text-blue-gray-900 opacity-70">
+                                                    Category </p>
+                                            </th>
+                                            <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
+                                                <p
+                                                    class="block font-sans text-sm antialiased font-bold leading-none text-blue-gray-900 opacity-70">
+                                                    Value </p>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @if (count($user->user->solvers) === 0)
+                                            <tr>
+                                                <td colspan="3">Not Challenge Solve</td>
+                                            </tr>
+                                        @endif
+                                        @foreach ($user->user->solvers as $solve)
+                                            @if ($solve->challenge->information_id == $information->id)
+                                                <tr>
+                                                    <td class="p-4">{{ $solve->challenge->name }}</td>
+                                                    <td class="p-4">{{ $solve->challenge->category->name }}</td>
+                                                    <td class="p-4">{{ $solve->challenge->value }}</td>
+                                                </tr>
+                                            @endif
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
             </div>
         </div>
     </section>

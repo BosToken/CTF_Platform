@@ -129,20 +129,20 @@
 
     <br>
     <h3>Delegation Detail</h3>
-    <table>
-        <tr>
-            <th>#</th>
-            <th>Username</th>
-            <th>FullName</th>
-            <th>Team</th>
-            <th>Total Solve</th>
-            <th>Training Score</th>
-        </tr>
-        @foreach ($information->manages as $key => $user)
-            @php
-                $userScore = $user->user->solvers->whereIn('challenge_id', $challenge_id)->sum('challenge.value');
-            @endphp
 
+    @foreach ($information->manages as $key => $user)
+        @php
+            $userScore = $user->user->solvers->whereIn('challenge_id', $challenge_id)->sum('challenge.value');
+        @endphp
+        <table>
+            <tr>
+                <th>#</th>
+                <th>Username</th>
+                <th>FullName</th>
+                <th>Team</th>
+                <th>Total Solve</th>
+                <th>Training Score</th>
+            </tr>
             <tr>
                 <td>{{ $key + 1 }}</td>
                 <td>{{ $user->user->username }}</td>
@@ -151,8 +151,34 @@
                 <td>{{ count($user->user->solvers) }}</td>
                 <td>{{ $userScore }}</td>
             </tr>
-        @endforeach
-    </table>
+        </table>
+        <table>
+            <tr>
+                <th>#</th>
+                <th>Challenge Name</th>
+                <th>Category</th>
+                <th>Value</th>
+            </tr>
+            @if (count($user->user->solvers) === 0)
+                <tr>
+                    <td colspan="4">
+                        <center>Not Challenge Solve</center>
+                    </td>
+                </tr>
+            @endif
+            @foreach ($user->user->solvers as $key => $solve)
+                @if ($solve->challenge->information_id == $information->id)
+                    <tr>
+                        <td>{{ $key + 1 }}</td>
+                        <td>{{ $solve->challenge->name }}</td>
+                        <td>{{ $solve->challenge->category->name }}</td>
+                        <td>{{ $solve->challenge->value }}</td>
+                    </tr>
+                @endif
+            @endforeach
+        </table>
+        <br>
+    @endforeach
 
 </body>
 

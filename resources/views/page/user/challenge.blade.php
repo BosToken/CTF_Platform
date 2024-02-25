@@ -1,102 +1,3 @@
-{{-- <x-layout.user>
-    <title>LEGICOMP | Challenges</title>
-
-    <h1 class="text-center mb-3">Challenge</h1>
-
-    @foreach ($categories as $category)
-        <h2>{{ $category->name }}</h2>
-        <div class="d-flex flex-wrap justify-content-start mb-5">
-            @foreach ($solveChallenges as $solveChallenge)
-                @if ($solveChallenge->challenge->category->name == $category->name)
-                    <div class="card bg-success text-white my-3 me-3" style="width: 20rem;" data-bs-toggle="modal"
-                        data-bs-target="#modal{{ $solveChallenge->challenge->id }}">
-                        <div class="card-body">
-                            <h4 class="card-title text-center">{{ $solveChallenge->challenge->name }}</h4>
-                            <h4 class="card-subtitle text-center mt-3">{{ $solveChallenge->challenge->value }}</h4>
-                        </div>
-                    </div>
-
-                    <div class="modal fade" id="modal{{ $solveChallenge->challenge->id }}" tabindex="-1"
-                        aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="text-center">
-                                        <h4>{{ $solveChallenge->challenge->name }}</h4>
-                                        <h4>{{ $solveChallenge->challenge->value }}</h4>
-                                    </div>
-                                    <div class="mx-3">
-                                        <p>
-                                            {!! $solveChallenge->challenge->message !!}
-                                        </p>
-                                    </div>
-                                    <form action="submitFlag/{{ $solveChallenge->challenge->id }}" method="post">
-                                        @csrf
-                                        <div class="input-group mb-3">
-                                            <input type="text" class="form-control" placeholder="Flag" name="flag"
-                                                aria-label="Recipient's username" aria-describedby="button-addon2">
-                                            <button class="btn btn-outline-success" type="submit"
-                                                id="button-addon2">Submit</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @endif
-            @endforeach
-
-            @foreach ($unsolveChallenges as $unsolveChallenge)
-                @if ($unsolveChallenge->category->name == $category->name)
-                    <div class="card my-3 me-3" style="width: 20rem;" data-bs-toggle="modal"
-                        data-bs-target="#modal{{ $unsolveChallenge->id }}">
-                        <div class="card-body">
-                            <h4 class="card-title text-center">{{ $unsolveChallenge->name }}</h4>
-                            <h4 class="card-subtitle text-center mt-3">{{ $unsolveChallenge->value }}</h4>
-                        </div>
-                    </div>
-
-                    <div class="modal fade" id="modal{{ $unsolveChallenge->id }}" tabindex="-1"
-                        aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="text-center">
-                                        <h4>{{ $unsolveChallenge->name }}</h4>
-                                        <h4>{{ $unsolveChallenge->value }}</h4>
-                                    </div>
-                                    <div class="mx-3">
-                                        <p>
-                                            {!! $unsolveChallenge->message !!}
-                                        </p>
-                                    </div>
-                                    <form action="submitFlag/{{ $unsolveChallenge->id }}" method="post">
-                                        @csrf
-                                        <div class="input-group mb-3">
-                                            <input type="text" class="form-control" placeholder="Flag" name="flag"
-                                                aria-label="Recipient's username" aria-describedby="button-addon2">
-                                            <button class="btn btn-outline-success" type="submit"
-                                                id="button-addon2">Submit</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @endif
-            @endforeach
-        </div>
-    @endforeach
-</x-layout.user> --}}
-
 <x-layout.user>
     <h1
         class="py-9 text-4xl font-extrabold tracking-tight text-center leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
@@ -226,6 +127,12 @@
                                                 <p
                                                     class="block font-sans text-sm antialiased font-bold leading-none text-blue-gray-900">
                                                     Username </p>
+                                            </th>
+                                            <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
+                                                <p
+                                                    class="block font-sans text-sm antialiased font-bold leading-none text-blue-gray-900">
+                                                    Date </p>
+                                            </th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -234,14 +141,20 @@
                                             $index = 0;
                                         @endphp
                                         @foreach ($solves as $solve)
-                                        <tr class="even:bg-blue-gray-50/50">
-                                            <th class="p-4" scope="row">{{ $index += 1 }}</th>
-                                            <td class="p-4">
-                                                <a href="/user/{{$solve->user->username}}" style="text-decoration: none;">
-                                                    {{ $solve->user->username }}
-                                                </a>
-                                            </td>
-                                        </tr>
+                                            @php
+                                                $date = new DateTime($solve->created_at);
+                                                $formattedDate = $date->format('l, d F Y : H:i');
+                                            @endphp
+                                            <tr class="even:bg-blue-gray-50/50">
+                                                <th class="p-4" scope="row">{{ $index += 1 }}</th>
+                                                <td class="p-4">
+                                                    <a href="/user/{{ $solve->user->username }}"
+                                                        style="text-decoration: none;">
+                                                        {{ $solve->user->username }}
+                                                    </a>
+                                                </td>
+                                                <td>{{ $formattedDate }}</td>
+                                            </tr>
                                         @endforeach
                                     </tbody>
                                 </table>
@@ -252,7 +165,8 @@
                 @endforeach
                 @foreach ($unsolveChallenges as $unsolveChallenge)
                     @if ($unsolveChallenge->category->name == $category->name)
-                        <div class="hidden bg-[#31373b] rounded-xl mb-3 shadow-md shadow-red-500" id="rightCard{{ $indexRight }}">
+                        <div class="hidden bg-[#31373b] rounded-xl mb-3 shadow-md shadow-red-500"
+                            id="rightCard{{ $indexRight }}">
                             <div class="px-6 py-4 shadow">
                                 <div class="text-white font-bold text-4xl mb-1 text-center ">
                                     {{ $unsolveChallenge->name }}<span
@@ -292,6 +206,12 @@
                                                 <p
                                                     class="block font-sans text-sm antialiased font-bold leading-none text-blue-gray-900">
                                                     Username </p>
+                                            </th>
+                                            <th class="p-4 border-b border-blue-gray-100 bg-blue-gray-50">
+                                                <p
+                                                    class="block font-sans text-sm antialiased font-bold leading-none text-blue-gray-900">
+                                                    Date </p>
+                                            </th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -300,14 +220,20 @@
                                             $index = 0;
                                         @endphp
                                         @foreach ($solves as $solve)
-                                        <tr class="even:bg-blue-gray-50/50">
-                                            <th class="p-4" scope="row">{{ $index += 1 }}</th>
-                                            <td class="p-4">
-                                                <a href="/user/{{$solve->user->username}}" style="text-decoration: none;">
-                                                    {{ $solve->user->username }}
-                                                </a>
-                                            </td>
-                                        </tr>
+                                            @php
+                                                $date = new DateTime($solve->created_at);
+                                                $formattedDate = $date->format('l, d F Y : H:i');
+                                            @endphp
+                                            <tr class="even:bg-blue-gray-50/50">
+                                                <th class="p-4" scope="row">{{ $index += 1 }}</th>
+                                                <td class="p-4">
+                                                    <a href="/user/{{ $solve->user->username }}"
+                                                        style="text-decoration: none;">
+                                                        {{ $solve->user->username }}
+                                                    </a>
+                                                </td>
+                                                <td>{{ $formattedDate }}</td>
+                                            </tr>
                                         @endforeach
 
                                     </tbody>
