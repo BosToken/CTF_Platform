@@ -58,7 +58,6 @@ class AdminController extends Controller
             'information' => $information
         ];
         $pdf = Pdf::loadView('page.admin.report-view', $data);
-        // return view('page.admin.report-view', compact('information'));
         return $pdf->download('LEGICOMP_Training-Report_'.$title.'.pdf');
     }
 

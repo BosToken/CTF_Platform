@@ -74,17 +74,6 @@
             <td>{{ $totalCategory }}</td>
             <td>{{ $score }}</td>
         </tr>
-        <tr>
-            <td>{{ $totalChallenge }}</td>
-            <td>{{ $totalCategory }}</td>
-            <td>{{ $score }}</td>
-        </tr>
-
-        <tr>
-            <td>{{ $totalChallenge }}</td>
-            <td>{{ $totalCategory }}</td>
-            <td>{{ $score }}</td>
-        </tr>
     </table>
 
     <br>
