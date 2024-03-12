@@ -4,6 +4,7 @@
             <h1
                 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
                 Scoreboards</h1>
+            <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-400"></p>
             <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0">
             </div>
             <div
@@ -30,18 +31,20 @@
                     </thead>
                     <tbody>
                         @foreach ($users as $key => $user)
-                            <tr class="even:bg-blue-gray-50/50">
-                                <th class="p-4" scope="row">{{ $key + 1 }}</th>
-                                <td class="p-4">
-                                    <a href="user/{{ $user['username'] }}"
-                                        style="text-decoration: none;">{{ $user['username'] }}</a>
-                                </td>
-                                <td class="p-4">
-                                    <p
-                                        class="block font-sans text-sm antialiased font-bold leading-normal text-blue-gray-900">
-                                        {{ $user['score'] }}</p>
-                                </td>
-                            </tr>
+                            @if ($user['visible'])
+                                <tr class="even:bg-blue-gray-50/50">
+                                    <th class="p-4" scope="row">{{ $key + 1 }}</th>
+                                    <td class="p-4">
+                                        <a href="user/{{ $user['username'] }}"
+                                            style="text-decoration: none;">{{ $user['username'] }}</a>
+                                    </td>
+                                    <td class="p-4">
+                                        <p
+                                            class="block font-sans text-sm antialiased font-bold leading-normal text-blue-gray-900">
+                                            {{ $user['score'] }}</p>
+                                    </td>
+                                </tr>
+                            @endif
                         @endforeach
                     </tbody>
                 </table>

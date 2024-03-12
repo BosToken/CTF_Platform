@@ -49,6 +49,7 @@ class SolverAction
 
                 return [
                     "username" => $user->username,
+                    "visible" => $user->visible,
                     "score" => $score
                 ];
             })

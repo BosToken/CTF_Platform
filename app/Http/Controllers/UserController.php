@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\UserRequest;
 use App\Actions\AuthAction;
 use App\Actions\ChallengeAction;
-use App\Actions\CategoryAction;
 use App\Actions\SolverAction;
+use App\Actions\CategoryAction;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
 
@@ -37,12 +36,6 @@ class UserController extends BaseController
             }
         }
         return redirect()->route('challenges');
-    }
-
-    public function scoreboard(SolverAction $solverAction)
-    {
-        $users = $solverAction->score();
-        return view('page.user.scoreboard', compact('users'));
     }
 
     public function logout(AuthAction $action)

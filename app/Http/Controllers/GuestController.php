@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\UserRequest;
+use App\Actions\SolverAction;
 use App\Actions\UserAction;
 use App\Actions\AuthAction;
 use Illuminate\Routing\Controller as BaseController;
@@ -37,5 +38,11 @@ class GuestController extends BaseController
 
     public function landing(){
         return view('welcome');
+    }
+    
+    public function scoreboard(SolverAction $solverAction)
+    {
+        $users = $solverAction->score();
+        return view('page.user.scoreboard', compact('users'));
     }
 }
