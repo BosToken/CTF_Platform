@@ -28,6 +28,7 @@ class DatabaseSeeder extends Seeder
         \App\Models\User::factory()->create([
             'id' => $user_id,
             'username' => 'Admin',
+            'email' => 'admin@gmail.com',
             'password' => 'Admin',
         ]);
 
@@ -35,6 +36,7 @@ class DatabaseSeeder extends Seeder
             'id' => $user2_id,
             'username' => 'BosToken',
             'name' => 'Faiz Diandra Maulana',
+            'email' => 'faizdiandra11@gmail.com',
             'password' => 'BosToken',
         ]);
 
@@ -42,6 +44,7 @@ class DatabaseSeeder extends Seeder
             'id' => $user3_id,
             'username' => 'moonap',
             'name' => 'Bimo Yudistira Ariel',
+            'email' => 'faizdiandra11@gmail.com',
             'password' => 'moonap',
         ]);
 

@@ -1,9 +1,5 @@
 <?php
 
-use App\Http\Controllers\Controller;
-use App\Http\Controllers\UserController;
-use Illuminate\Support\Facades\Route;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,18 +11,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
-
-Route::get('debug', [Controller::class, 'debug']);
-
-Route::get('login', function () {
-    return view('login');
-})->name('login');
-
-Route::post('login', [UserController::class, 'login']);
-
-
+require __DIR__ . '/web/guest/guest.route.php';
 require __DIR__ . '/web/user/user.route.php';
 require __DIR__ . '/web/admin/admin.route.php';

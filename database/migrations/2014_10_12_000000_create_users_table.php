@@ -15,6 +15,8 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->string('username', 64);
             $table->string('name')->default('anonymous');
+            $table->string('email');
+            $table->boolean('visible')->default(1);
             $table->string('password', 255);
             $table->timestamps();
         });

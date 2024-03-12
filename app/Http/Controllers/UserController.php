@@ -2,28 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use Closure;
 use App\Http\Requests\UserRequest;
 use App\Actions\AuthAction;
 use App\Actions\ChallengeAction;
 use App\Actions\CategoryAction;
 use App\Actions\SolverAction;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Illuminate\Routing\Controller as BaseController;
 
-class UserController extends Controller
+class UserController extends BaseController
 {
-
-    public function login(UserRequest $userRequest, AuthAction $action)
-    {
-
-        $login = $action->loginUser($userRequest);
-
-        if ($login) {
-            return redirect()->route('challenges');
-        }
-        return back();
-    }
 
     public function profile(AuthAction $action)
     {

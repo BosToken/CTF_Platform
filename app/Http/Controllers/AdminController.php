@@ -10,11 +10,11 @@ use App\Actions\TeamAction;
 use App\Actions\TeamManageAction;
 use App\Actions\UserAction;
 use App\Actions\UserRoleAction;
-use App\Models\User;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller as BaseController;
 
-class AdminController extends Controller
+class AdminController extends BaseController
 {
     public function challenges(ChallengeAction $challengeAction)
     {

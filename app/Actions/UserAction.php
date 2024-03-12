@@ -9,6 +9,7 @@ use App\Models\UserRole;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 
 class UserAction
 {
@@ -38,9 +39,13 @@ class UserAction
         $user->username = $request['username'];
         $user->name = $request['name'];
         $user->password = Hash::make($request['password']);
+        $user->email = $request['email'];
         $user->save();
 
         $roleAction->storeUserRole($id);
+
+        $content = [$request['name'], $request['username'], $request['password']];
+        $this->mail($user->email, $content);
     }
 
     public function updateUser($request, $id)
@@ -48,6 +53,8 @@ class UserAction
         $user = User::find($id);
         $user->username = $request['username'];
         $user->name = $request['name'];
+        $user->email = $request['email'];
+        $user->visible = $request['visible'];
         $user->save();
     }
 
@@ -59,5 +66,12 @@ class UserAction
             UserRole::where('user_id', $id)->delete();
             User::find($id)->delete();
         }
+    }
+
+    public function mail($email, $content){
+        Mail::send('page.user.mail', ['content' => $content], function ($message) use ($email) {
+            $message->to($email);
+            $message->subject('Legicomp Account');
+        });
     }
 }
